@@ -26,3 +26,8 @@
 ## [3/21/2025] 8:10 PM (session 2 start)
 
 - For this session, I plan on finishing up the project by creating the encryption process and modifying the driver program to acknowledge all specified commands with proper functionality.
+
+## [3/21/2025] 11:56 PM (session 2 end)
+
+- I was able to successfully create the encryption program and modify the driver to acknowledge all commands
+- I was trying to print to STDOUT from the encryption process, but nothing was printing to the console even after flushing. I realized that I needed to print the encryption process's STDOUT to the driver's STDOUT and that fixed it.
