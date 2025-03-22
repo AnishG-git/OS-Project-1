@@ -1,2 +1,2 @@
 run:
-	python cpu.py
+	python driver.py logfile.txt

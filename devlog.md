@@ -13,6 +13,12 @@
 - I know that I need to create three separate programs (a logger, an encryption program, and a driver program)
 - I plan to create three separate files (one for each program)
 
-## [03/20/2025] 10:53 AM
+## [03/20/2025] 10:53 AM (session 1 start)
 
 - My plan is to create the logger first. I want to do this part first because I have some experience writing to files in python so it's more of a low hanging fruit. I'll also start with the drivery but really only the bare minimum for the logger to work.
+
+## [03/21/2025] 7:55 PM (session 1 end)
+
+- I forgot to commit my changes from session 1 so that's why I'm committing the next day
+- I was able to successfully create the logger and the MVP of the driver with regard to the logger
+- A problem I ran into was that the output of the logger was not showing up in the logfile. However, I realized that the solution was that I needed to manually flush to the logfile
