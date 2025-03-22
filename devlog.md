@@ -31,3 +31,7 @@
 
 - I was able to successfully create the encryption program and modify the driver to acknowledge all commands
 - I was trying to print to STDOUT from the encryption process, but nothing was printing to the console even after flushing. I realized that I needed to print the encryption process's STDOUT to the driver's STDOUT and that fixed it.
+
+## [3/22/2025] 5:53 PM (session 3 start)
+
+- I read the project requirements once more and I realized that for encryption and decryption, the user should be allowed to use words from their history so I plan to add that functionality this sesion.
