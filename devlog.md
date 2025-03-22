@@ -22,3 +22,7 @@
 - I forgot to commit my changes from session 1 so that's why I'm committing the next day
 - I was able to successfully create the logger and the MVP of the driver with regard to the logger
 - A problem I ran into was that the output of the logger was not showing up in the logfile. However, I realized that the solution was that I needed to manually flush to the logfile
+
+## [3/21/2025] 8:10 PM (session 2 start)
+
+- For this session, I plan on finishing up the project by creating the encryption process and modifying the driver program to acknowledge all specified commands with proper functionality.
