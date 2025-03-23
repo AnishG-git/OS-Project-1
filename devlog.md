@@ -44,3 +44,8 @@
 
 - I realized that the logger is not doing what it's supposed to do exactly so I'm modifying it in this session
 - I anticipate that it will be a quick change since the modification will be at the level of the driver
+
+## [3/23/2025] 9:54 AM (session 4 end)
+
+- Over the duration of the session, I realized that I had to make modifications to all three files because I was not logging RESULT or ERROR in encryption.py in an expressive way
+- In summary, I made logging more expressive and formatted printing to STDOUT

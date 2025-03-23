@@ -1,11 +1,6 @@
 import sys
 import subprocess
 
-def isValidEncryptionInput(text: str) -> bool:
-    if not text.isalpha():
-        return False
-    return True
-
 # returns -1 if choices are empty
 def getChoiceFromChoices(choices: list) -> int:
     if len(choices) == 0:
@@ -25,10 +20,12 @@ def getNewString(encrypt: bool) -> str:
 
 def getEncryptionString(history: list, encrypt: bool) -> str:
     # printing menu of encryption/decryption commands
+    print()
     if len(history) > 0:
         choices = ["Choose string from history", "Enter new string"]
         chosen = getChoiceFromChoices(choices)
         if chosen == 0:
+            print()
             chosenIndex = getChoiceFromChoices(history)
             return history[chosenIndex]
         else:
@@ -56,48 +53,51 @@ def driver(log_file):
         logger.stdin.write(message + "\n")
         logger.stdin.flush()
 
-    def executeEncryptionCommand(cmd: str, text: str):
+    def executeAndLogEncryptionCommand(cmd: str, text: str):
         if cmd == "ENCRYPT" or cmd == "DECRYPT" or cmd == "PASS":
             encryptor.stdin.write(f"{cmd} {text}\n")
             encryptor.stdin.flush()
             result = encryptor.stdout.readline().strip()
-            resultParts = result.split(" ", 1)
-            if resultParts[0] == "RESULT" and len(resultParts) > 1:
+            resultParts = result.split()
+            if resultParts[0] == "RESULT" and len(resultParts) == 2:
                 updateHistory(resultParts[1])
+            log(result)
+            print(result + "\n")
             return result
         if cmd == "QUIT":
             encryptor.stdin.write("QUIT\n")
             encryptor.stdin.flush()
 
     
-    log("START Driver started")
+    log("START Logging started")
     
     while True:
-        command = input("Enter command (password, encrypt, decrypt, history, quit): ").strip().lower()
-        log(f"COMMAND {command}")
-        
+        command = input("Enter command (PASSWORD, ENCRYPT, DECRYPT, HISTORY, QUIT): ").strip().lower()
+
         if command == "password":
+            log("PASSWORD Attempting to set password")
             password = input("Enter passkey: ").strip().upper()
-            print(executeEncryptionCommand("PASS", password))
+            result = executeAndLogEncryptionCommand("PASS", password)
         elif command == "encrypt":
-            text = getEncryptionString(history, True)
+            text = getEncryptionString(history, encrypt=True)
+            log(f"ENCRYPT Attempting to encrypt {text}")
             updateHistory(text)
-            print(executeEncryptionCommand("ENCRYPT", text))
+            result = executeAndLogEncryptionCommand("ENCRYPT", text)
         elif command == "decrypt":
-            text = getEncryptionString(history, False)
+            text = getEncryptionString(history, encrypt=False)
+            log(f"ENCRYPT Attempting to decrypt {text}")
             updateHistory(text)
-            print(executeEncryptionCommand("DECRYPT", text))
+            result = executeAndLogEncryptionCommand("DECRYPT", text)
         elif command == "history":
-            print("History:", history)
+            log(f"HISTORY {history}")
+            print(f"HISTORY {history}\n")
         elif command == "quit":
-            executeEncryptionCommand("QUIT", "")
-            logger.stdin.write("QUIT\n")
-            logger.stdin.flush()
+            executeAndLogEncryptionCommand("QUIT", "")
+            log("QUIT Exiting...")
             break
         else:
-            print("Invalid command")
+            print("Invalid command\n")
     
-    log("EXIT Driver exiting")
     encryptor.wait()
     logger.wait()
 

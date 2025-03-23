@@ -36,18 +36,23 @@ def main():
         argument = parts[1] if len(parts) > 1 else ""
         
         if action == "PASS":
-            passkey = argument
             if argument == "":
-                passkey = None
-            print("RESULT", flush=True)
+                print("ERROR Password not set, using previous password if one exists", flush=True)
+                continue
+            passkey = argument
+            print("RESULT Password set", flush=True)
         elif action == "ENCRYPT":
             if passkey is None:
                 print("ERROR Password not set", flush=True)
+            elif not isValidInput(argument):
+                print("ERROR Invalid input", flush=True)
             else:
                 print("RESULT", vigenere_cipher(argument, passkey), flush=True)
         elif action == "DECRYPT":
             if passkey is None:
                 print("ERROR Password not set", flush=True)
+            elif not isValidInput(argument):
+                print("ERROR Invalid input", flush=True)
             else:
                 print("RESULT", vigenere_cipher(argument, passkey, decrypt=True), flush=True)
         elif action == "QUIT":

@@ -5,10 +5,9 @@ def log_message(log_file):
     with open(log_file, 'a') as f:
         while True:
             line = sys.stdin.readline().strip()
-            if line == "QUIT":
-                f.close()
-                break
-            
+            if not line:
+                continue
+
             parts = line.split(maxsplit=1)
             if len(parts) < 2:
                 continue
@@ -18,6 +17,11 @@ def log_message(log_file):
             log_entry = f"{timestamp} [{action}] {message}\n"
             f.write(log_entry)
             f.flush()
+            if action == "QUIT":
+                f.write("\n")
+                f.flush()
+                f.close()
+                break
 
 if __name__ == "__main__":
     if len(sys.argv) != 2:
