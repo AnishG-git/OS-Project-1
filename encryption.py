@@ -18,6 +18,11 @@ def vigenere_cipher(text, key, decrypt=False):
         result.append(new_char)
     return "".join(result)
 
+def isValidInput(text: str) -> bool:
+    if not text.isalpha():
+        return False
+    return True
+
 def main():
     passkey = None
     

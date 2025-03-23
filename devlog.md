@@ -35,3 +35,7 @@
 ## [3/22/2025] 5:53 PM (session 3 start)
 
 - I read the project requirements once more and I realized that for encryption and decryption, the user should be allowed to use words from their history so I plan to add that functionality this sesion.
+
+## [3/22/2025] 9:29 PM (session 3 end)
+
+- I was able to successfully modify the encryption program and driver to behave as expected with the history related options during encryption and decryption.
