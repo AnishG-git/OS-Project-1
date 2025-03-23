@@ -39,3 +39,8 @@
 ## [3/22/2025] 9:29 PM (session 3 end)
 
 - I was able to successfully modify the encryption program and driver to behave as expected with the history related options during encryption and decryption.
+
+## [3/23/2025] 8:52 AM (session 4 start)
+
+- I realized that the logger is not doing what it's supposed to do exactly so I'm modifying it in this session
+- I anticipate that it will be a quick change since the modification will be at the level of the driver
