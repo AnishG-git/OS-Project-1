@@ -62,28 +62,37 @@ os-project-1/
 ```
 make run
 
-Enter command (password, encrypt, decrypt, history, quit): password 
-Enter passkey: secret
-RESULT
+Enter command (PASSWORD, ENCRYPT, DECRYPT, HISTORY, QUIT): INVALID CMD
+Invalid command
 
-Enter command (password, encrypt, decrypt, history, quit): encrypt 
-Enter alphabetical string to encrypt: hello
-RESULT ZINCS
+Enter command (PASSWORD, ENCRYPT, DECRYPT, HISTORY, QUIT): PASSWORD
+Enter passkey: SECRET
+RESULT Password set
 
-Enter command (password, encrypt, decrypt, history, quit): decrypt
+Enter command (PASSWORD, ENCRYPT, DECRYPT, HISTORY, QUIT): PASSWORD
+Enter passkey:
+ERROR Password not set, using previous password if one exists
+
+Enter command (PASSWORD, ENCRYPT, DECRYPT, HISTORY, QUIT): ENCRYPT
+
+Enter alphabetical string to encrypt: encrypt
+RESULT WREICIL
+
+Enter command (PASSWORD, ENCRYPT, DECRYPT, HISTORY, QUIT): DECRYPT
+
 [0] Choose string from history
 [1] Enter new string
 Enter choice: 0
 
-[0] HELLO
-[1] ZINCS
+[0] ENCRYPT
+[1] WREICIL
 Enter choice: 1
-RESULT HELLO
+RESULT ENCRYPT
 
-Enter command (password, encrypt, decrypt, history, quit): history
-History: ['HELLO', 'ZINCS']
+Enter command (PASSWORD, ENCRYPT, DECRYPT, HISTORY, QUIT): HISTORY
+HISTORY ['ENCRYPT', 'WREICIL']
 
-Enter command (password, encrypt, decrypt, history, quit): quit
+Enter command (PASSWORD, ENCRYPT, DECRYPT, HISTORY, QUIT): QUIT
 ```
 
 ## Notes
